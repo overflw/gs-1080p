@@ -5,7 +5,7 @@ const microtime = require("microtime");
 let sleep = ms => new Promise(r => setTimeout(r, ms));
 
 // Select quality
-const quality = '1080p';
+const quality = '1080p60 HD';
 
 (async () => {
   console.log(microtime.now(), " Launching Browser");
@@ -67,8 +67,7 @@ const quality = '1080p';
   }
 
   if (!selection) {
-    let qualityTexts = qualityOptions.map(async (el) => await el.getProperty('innerText')).join('\n');
-    console.log('"' + quality + '" not found. Options are: \n\nHighest\n' + qualityTexts);
+    console.log('"' + quality + '" not found. Options are: \n\nHighest\n' + qualityOptionsValues);
     //settingsButton.click();                               // click menu button to close
   }
 
